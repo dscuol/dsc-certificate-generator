@@ -14,7 +14,7 @@
 
 ## Installation steps
 
-1.Clone the Repo and install the requirements
+1. Clone the Repo and install the requirements
 
 ```
 git clone https://github.com/dscuol/dsc-certificate-generator.git
@@ -22,7 +22,9 @@ cd dsc-certificate-generator
 pip install -r requirements.txt
 ```
 
-2.Goto the project directory and run the script generate.py or type the text below into cmd.
+2. Add your attendees names to ```dsc-certificates-generator/events.csv``` file in the ```Name``` column.
+
+3. Goto the project directory and run the script generate.py or type the text below into cmd.
 
 ```
 python generate.py

@@ -6,6 +6,7 @@ from tqdm import tqdm_gui
 import os 
 from datetime import datetime
 import shutil
+import textwrap3
 
 file = pd.read_csv('event.csv')
 
@@ -42,14 +43,20 @@ for names in tqdm_gui(file['Name']):
 
     image.paste(dsc_logo,(100,50))
     participation_message = f"is hereby awarded this Certificate of Participation on successfully attending \n{eventname} at {university} organized by DSC {acronym}"
+
     draw.text((190,70),'Developer Student Clubs',font=fontdev,fill=colordev)
     draw.text((100,150),'Certificate of Participation',font=fontcert,fill=colorcert)
     draw.text((100,240),names,font=fontcert,fill=colorname)
-    draw.text((100,340),participation_message,font=ImageFont.truetype('arial.ttf', size=25),fill='rgb(102, 102, 102)')
-    draw.line((150,600, 500,600), fill='rgb(0, 0, 0)')
-    draw.text((150,460),leadname,font=signature,fill=colorname)
 
-    draw.text((150,620),f'Developer Student Clubs {acronym} Lead',font=ImageFont.truetype('arial.ttf', size=20),fill=colorcert)
+    lines = textwrap3.wrap(participation_message, width=70)
+    y_text = 340
+    for line in lines:
+        draw.text((100, y_text), line, font=ImageFont.truetype('arial.ttf', size=25), fill='rgb(102, 102, 102)')
+        y_text += 30
+
+    draw.line((150,620, 500,620), fill='rgb(0, 0, 0)')
+    draw.text((150,480),leadname,font=signature,fill=colorname)
+    draw.text((150,640),f'Developer Student Clubs {acronym} Lead',font=ImageFont.truetype('arial.ttf', size=20),fill=colorcert)
     draw.text((700,810),'#developerstudentclubs',font=ImageFont.truetype('arial.ttf', size=20),fill='rgb(179, 0, 0)')
     draw.text((700,740),'Certificate ID:',font=ImageFont.truetype('arial.ttf', size=20),fill=colorcert)
     draw.text((700,770),f'Issue Date: {currentdate}',font=ImageFont.truetype('arial.ttf', size=20),fill=colorcert)
