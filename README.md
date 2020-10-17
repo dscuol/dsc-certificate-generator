@@ -1,6 +1,6 @@
 <a href="#">
   <div align="center">
-    <img src="certificates.png" width='700'/>
+    <img src="sample certificate.png" width='700'/>
   </div>
 </a>
 
