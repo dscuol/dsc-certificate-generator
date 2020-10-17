@@ -4,3 +4,4 @@ pillow
 termcolor
 tqdm
 matplotlib
+textwrap3
